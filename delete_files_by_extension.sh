@@ -10,11 +10,7 @@ EXTENSIONS=(
 ) # File extensions to delete
 MODE="delete" # Mode: "preview" or "delete"
 
-# Require an absolute target path
-if [[ "$TARGET_DIR" != /* ]]; then
-  echo "Error: TARGET_DIR must be an absolute path." >&2
-  exit 1
-fi
+
 
 # Check whether the target directory exists
 if [[ ! -d "$TARGET_DIR" ]]; then

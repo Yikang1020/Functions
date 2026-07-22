@@ -25,17 +25,6 @@ MOVE_CLEANUP="delete_source"
 # Validate configuration
 # ============================================================
 
-# Require absolute paths
-if [[ "$SOURCE" != /* ]]; then
-  echo "Error: SOURCE must be an absolute path: $SOURCE" >&2
-  exit 1
-fi
-
-if [[ "$DESTINATION" != /* ]]; then
-  echo "Error: DESTINATION must be an absolute path: $DESTINATION" >&2
-  exit 1
-fi
-
 # Check whether the source directory exists
 if [[ ! -d "$SOURCE" ]]; then
   echo "Error: Source directory does not exist: $SOURCE" >&2
