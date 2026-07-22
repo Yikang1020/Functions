@@ -31,9 +31,13 @@ if [[ "$MODE" == "preview" ]]; then
   echo "$TARGET_DIR"
   echo
 
+
   find "$TARGET_DIR" \
     -type f \
-    -name "._*" \
+    \( \
+      -name "._*" \
+      -o -name ".DS_Store" \
+    \) \
     -print
 
   echo
@@ -46,12 +50,15 @@ elif [[ "$MODE" == "delete" ]]; then
 
   find "$TARGET_DIR" \
     -type f \
-    -name "._*" \
+    \( \
+      -name "._*" \
+      -o -name ".DS_Store" \
+    \) \
     -print \
     -exec rm -f -- {} +
 
   echo
-  echo "All files beginning with '._' have been removed."
+  echo "Deletion completed. Matching files have been removed."
 
 else
   echo "Error: MODE must be 'preview' or 'delete'." >&2
